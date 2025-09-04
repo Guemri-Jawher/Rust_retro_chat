@@ -205,10 +205,11 @@ fn send_message(siv: &mut Cursive, msg: String) {
 
 // Function to create a retro-style theme
 fn create_retro_theme() -> Theme {
-    let mut theme = Theme::default();
-    theme.shadow = true; // Enable shadows
-    theme.borders = BorderStyle::Simple; // Use simple borders
-    
+    let mut theme = Theme {
+        shadow: true,
+        borders: BorderStyle::Simple,
+        ..Default::default()
+    };
     let mut palette = Palette::default();
     palette[PaletteColor::Background] = Color::Rgb(0, 0, 20); // Deep blue background
     palette[PaletteColor::View] = Color::Rgb(0, 0, 20); // Deep blue for views
